@@ -23,8 +23,8 @@
          <children>
               <Pane id="newGameGenderPane" fx:id="newGameGenderPane" layoutY="570.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1280.0">
                <children>
-                  <Button id="buttonFemale" fx:id="buttonFemale" layoutX="543.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
-                  <Button id="buttonFutanari" fx:id="buttonFutanari" layoutX="693.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+                  <Button id="buttonGenderFemale" fx:id="buttonGenderFemale" layoutX="543.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+                  <Button id="buttonGenderFutanari" fx:id="buttonGenderFutanari" layoutX="693.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
                </children>
               </Pane>
             <Pane id="newGameRacePane" fx:id="newGameRacePane" layoutY="570.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1280.0">
@@ -41,8 +41,17 @@
                   <Button id="buttonBreastsSmall" fx:id="buttonBreastsSmall" layoutX="243.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
                   <Button id="buttonBreastsSmallish" fx:id="buttonBreastsSmallish" layoutX="393.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
                   <Button id="buttonBreastsMedium" fx:id="buttonBreastsMedium" layoutX="543.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
-                  <Button id="buttonRaceFoxHuman" fx:id="buttonBreastsBig" layoutX="693.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
-                  <Button id="buttonRaceDemon" fx:id="buttonRaceDemon1" layoutX="843.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+                  <Button id="buttonBreastsBig" fx:id="buttonBreastsBig" layoutX="693.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+                  <Button id="buttonBreastsHuge" fx:id="buttonBreastsHuge" layoutX="843.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+               </children>
+            </Pane>
+            <Pane id="newGamePenisPane" fx:id="newGamePenisPane" layoutY="570.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1280.0">
+               <children>
+                  <Button id="buttonPenisSmall" fx:id="buttonPenisSmall" layoutX="243.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+                  <Button id="buttonPenisSmallish" fx:id="buttonPenisSmallish" layoutX="393.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+                  <Button id="buttonPenisMedium" fx:id="buttonPenisMedium" layoutX="543.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+                  <Button id="buttonBreastsBig" fx:id="buttonPenisBig" layoutX="693.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
+                  <Button id="buttonBreastsHuge" fx:id="buttonPenisHuge" layoutX="843.0" layoutY="58.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Button" />
                </children>
             </Pane>
             <TextArea id="storyBox" fx:id="storyBox" editable="false" prefHeight="570.0" prefWidth="1280.0" stylesheets="@MaidSim.css" wrapText="true" />
