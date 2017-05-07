@@ -21,25 +21,21 @@
       </Pane>
       <Pane id="newGamePane" fx:id="newGamePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" visible="false">
          <children>
-            <Pane id="newGameBGPane" fx:id="newGameBGPane" layoutX="212.0" layoutY="108.0" prefHeight="505.0" prefWidth="857.0">
-               <children>
-                  <Label fx:id="newGameTitleLabel" layoutX="365.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="59.0" prefWidth="213.0" text="Create your character">
-                     <font>
-                        <Font name="Arial Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="charNameLabel" layoutX="42.0" layoutY="73.0" text="Your name" />
-                  <TextField fx:id="charNameTextfield" layoutX="143.0" layoutY="72.0" />
-                  <Label fx:id="charGenderLabel" layoutX="42.0" layoutY="123.0" text="Gender" />
-                  <ComboBox fx:id="charGenderCB" layoutX="142.0" layoutY="122.0" prefWidth="150.0" />
-                  <Label fx:id="charRaceLabel" layoutX="42.0" layoutY="175.0" text="Race" />
-                  <ComboBox fx:id="charRaceCB" layoutX="142.0" layoutY="170.0" prefWidth="150.0" />
-                  <Label fx:id="charBoobsLabel" layoutX="42.0" layoutY="225.0" text="Breast size" />
-                  <ComboBox fx:id="charBoobsCB" layoutX="142.0" layoutY="220.0" prefWidth="150.0" />
-                  <Label fx:id="charDickLabel" layoutX="42.0" layoutY="275.0" text="Penis size" />
-                  <ComboBox fx:id="charDickCB" layoutX="142.0" layoutY="270.0" prefWidth="150.0" />
-               </children>
-            </Pane>
+            <Label fx:id="newGameTitleLabel" layoutX="365.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="59.0" prefWidth="213.0" text="Create your character">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="charNameLabel" layoutX="42.0" layoutY="73.0" text="Your name" />
+            <TextField fx:id="charNameTextfield" layoutX="143.0" layoutY="72.0" />
+            <Label fx:id="charGenderLabel" layoutX="42.0" layoutY="123.0" text="Gender" />
+            <ComboBox fx:id="charGenderCB" layoutX="142.0" layoutY="122.0" prefWidth="150.0" />
+            <Label fx:id="charRaceLabel" layoutX="42.0" layoutY="175.0" text="Race" />
+            <ComboBox fx:id="charRaceCB" layoutX="142.0" layoutY="170.0" prefWidth="150.0" />
+            <Label fx:id="charBoobsLabel" layoutX="42.0" layoutY="225.0" text="Breast size" />
+            <ComboBox fx:id="charBoobsCB" layoutX="142.0" layoutY="220.0" prefWidth="150.0" />
+            <Label fx:id="charDickLabel" layoutX="42.0" layoutY="275.0" text="Penis size" />
+            <ComboBox fx:id="charDickCB" layoutX="142.0" layoutY="270.0" prefWidth="150.0" />
          </children>
       </Pane>
    </children>

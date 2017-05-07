@@ -32,9 +32,7 @@ public class MaidSimController implements Initializable {
     
     @FXML
     private Pane newGamePane;
-    
-    @FXML
-    private Pane newGameBGPane;
+
     
     // Buttons
     
