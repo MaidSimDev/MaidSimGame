@@ -5,6 +5,6 @@
     -fx-background-size: cover, cover;
 }
 
-#mainFrame {
+#gameHUD {
     -fx-background-color: Whitesmoke;
 }
