@@ -6,6 +6,7 @@
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,80 +16,79 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-//import Initialiser;
 
 
 public class MaidSimController implements Initializable {
-    
+
     // AnchorPanes
-    
+
     @FXML
     private AnchorPane mainFrame;
-    
+
     // Panes
-    
+
     @FXML
     private Pane mainMenuPane;
-    
+
     @FXML
     private Pane newGamePane;
 
-    
+
     // Buttons
-    
+
     @FXML
     private Button newGameBTN;
-    
+
     // Labels
-    
+
     @FXML
     private Label newGameTitleLabel;
-            
+
     @FXML
     private Label charNameLabel;
-            
+
     @FXML
     private Label charGenderLabel;
-            
+
     @FXML
     private Label charRaceLabel;
-            
+
     @FXML
     private Label charBoobsLabel;
-            
+
     @FXML
     private Label charDickLabel;
-    
+
     // Comboboxes
-    
+
     @FXML
     private ComboBox charGenderCB;
-            
+
     @FXML
     private ComboBox charRaceCB;
-            
+
     @FXML
     private ComboBox charBoobsCB;
-            
+
     @FXML
     private ComboBox charDickCB;
-    
+
     // Textfields
-    
+
     @FXML
     private TextField charNameTextfield;
-    
+
     @FXML
     private void newGame(ActionEvent event) {
         mainMenuPane.setVisible(false);
         Initialiser.initialise(getCharGenderCB(), getCharRaceCB(), getCharBoobsCB(), getCharDickCB());
         newGamePane.setVisible(true);
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
+
+    }
 
     public Label getCharNameLabel() {
         return charNameLabel;
@@ -169,7 +169,6 @@ public class MaidSimController implements Initializable {
     public void setCharNameTextfield(TextField charNameTextfield) {
         this.charNameTextfield = charNameTextfield;
     }
-    
-    
-    
+
+
 }
