@@ -1,4 +1,4 @@
-package classes.character_and_body;
+package classes.Character_And_Body;
 
 public class Player extends Character{
 }
