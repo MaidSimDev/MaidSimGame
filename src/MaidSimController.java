@@ -17,6 +17,8 @@ import javafx.scene.layout.Pane;
 
 public class MaidSimController implements Initializable {
 
+
+
     // AnchorPanes
 
     @FXML
@@ -41,6 +43,8 @@ public class MaidSimController implements Initializable {
     @FXML
     private Pane newGameRacePane;
 
+    @FXML
+    public Pane newGameHairColorPane;
 
     @FXML
     private Pane newGameBreastsPane;
@@ -77,9 +81,23 @@ public class MaidSimController implements Initializable {
     @FXML
     private Button buttonRaceFoxHuman;
 
-
     @FXML
     private Button buttonRaceDemon;
+
+    @FXML
+    public Button buttonHairColorBlack;
+
+    @FXML
+    public Button buttonHairColorRed;
+
+    @FXML
+    public Button buttonHairColorBlonde;
+
+    @FXML
+    public Button buttonHairColorBrown;
+
+    @FXML
+    public Button buttonHairColorWhite;
 
 
     @FXML
