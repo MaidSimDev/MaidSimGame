@@ -1,4 +1,4 @@
-package classes.character_and_body;
+package classes.Character_And_Body.Body.Organs;
 
 public class Breasts {
 
@@ -29,10 +29,12 @@ public class Breasts {
     private int milkCapacity;
     private int milkReCharge;
     private int size;
+    private int breastCount;
+    private int nippleCount;
     private BreastSize breastSize;
 
-    public Breasts(boolean lactating, int milkCapacity, int milkReCharge, int size, BreastSize breastSize) {
-        if (breastSize.name.equals("None")){
+    public Breasts(boolean lactating, int milkCapacity, int milkReCharge, int size, int breastCount, int nippleCount,BreastSize breastSize) {
+        if (breastSize == BreastSize.NONE){
             this.exists = false;
         } else {
             this.exists = true;
@@ -41,6 +43,8 @@ public class Breasts {
         this.milkCapacity = milkCapacity;
         this.milkReCharge = milkReCharge;
         this.size = breastSizeToSize(breastSize);
+        this.breastCount = breastCount;
+        this.nippleCount = nippleCount;
         this.breastSize = breastSize;
     }
 
@@ -100,6 +104,22 @@ public class Breasts {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public int getBreastCount() {
+        return breastCount;
+    }
+
+    public void setBreastCount(int breastCount) {
+        this.breastCount = breastCount;
+    }
+
+    public int getNippleCount() {
+        return nippleCount;
+    }
+
+    public void setNippleCount(int nippleCount) {
+        this.nippleCount = nippleCount;
     }
 
     public BreastSize getBreastSize() {
