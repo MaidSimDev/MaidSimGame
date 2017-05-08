@@ -4,7 +4,7 @@ public enum HairColor {
 
     BLACK("Black"),
     RED("Red"),
-    BLONDE("Blonde"),
+    BLOND("Blond"),
     BROWN("Brown"),
     GREY("Grey"),
     ASHEN("Ashen"),
