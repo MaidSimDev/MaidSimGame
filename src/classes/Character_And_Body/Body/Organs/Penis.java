@@ -16,6 +16,14 @@ public class Penis {
         this.length = length;
     }
 
+    public Penis(boolean exists, boolean fertile, int length) {
+        this.exists = exists;
+        this.fertile = fertile;
+        this.cumCapacity = 0;
+        this.cumReCharge = 0;
+        this.length = length;
+    }
+
     public boolean isExists() {
         return exists;
     }

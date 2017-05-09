@@ -3,6 +3,7 @@ package classes.Character_And_Body;
 import classes.Character_And_Body.Body.Hair.HairColor;
 import classes.Character_And_Body.Body.Hair.HairLength;
 import classes.Character_And_Body.Body.Hair.HairStyle;
+import classes.Character_And_Body.Body.Organs.BreastSize;
 import classes.Character_And_Body.Body.Organs.Breasts;
 import classes.Character_And_Body.Body.Organs.Penis;
 
@@ -22,14 +23,15 @@ public class Character {
     private HairLength hairLength;
     private HairStyle hairStyle;
 
-    public Character(String name, int height, float weight, int arousal, int maxArousal, int stamina, int maxStamina, Race race, Breasts breasts, Penis penis, HairColor hairColor, HairLength hairLength, HairStyle hairStyle) {
+    public Character(String name, int height, float weight, Race race, BreastSize breastSize, Penis penis,
+                     HairColor hairColor, HairLength hairLength, HairStyle hairStyle) {
         this.name = name;
         this.height = height;
         this.weight = weight;
-        this.arousal = arousal;
-        this.maxArousal = maxArousal;
-        this.stamina = stamina;
-        this.maxStamina = maxStamina;
+        this.arousal = 0;
+        this.maxArousal = 100;
+        this.stamina = 100;
+        this.maxStamina = 100;
         this.race = race;
         this.breasts = breasts;
         this.penis = penis;

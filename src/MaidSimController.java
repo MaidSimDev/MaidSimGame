@@ -7,6 +7,12 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import classes.Character_And_Body.Body.Hair.HairColor;
+import classes.Character_And_Body.Body.Hair.HairLength;
+import classes.Character_And_Body.Body.Hair.HairStyle;
+import classes.Character_And_Body.Body.Organs.BreastSize;
+import classes.Character_And_Body.Body.Organs.Penis;
+import classes.Character_And_Body.Race;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -161,6 +167,17 @@ public class MaidSimController implements Initializable {
     @FXML
     private TextArea storyBox;
 
+    // Temporary variables to create a player
+
+    private String name;
+    private int height;
+    private float weight;
+    private Race race;
+    private BreastSize breastSize;
+    private Penis penis;
+    private HairColor hairColor;
+    private HairLength hairLength;
+    private HairStyle hairStyle;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -218,6 +235,7 @@ public class MaidSimController implements Initializable {
         });
 
         buttonGenderFemale.setOnAction(event -> {
+            newGameGenderPane.setVisible(false);
 
         });
     }

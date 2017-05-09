@@ -2,28 +2,6 @@ package classes.Character_And_Body.Body.Organs;
 
 public class Breasts {
 
-    enum BreastSize{
-        NONE("None"),
-        A("A"),
-        B("B"),
-        C("C"),
-        D("D"),
-        DD("DD"),
-        E("E"),
-        EE("EE"),
-        F("F"),
-        FF("FF"),
-        G("G"),
-        GG("GG"),
-        H("H"),
-        HH("HH");
-
-        private final String name;
-
-        BreastSize(String name) {
-            this.name = name;
-        }
-    }
     private boolean exists;
     private boolean lactating;
     private int milkCapacity;
@@ -45,6 +23,21 @@ public class Breasts {
         this.size = breastSizeToSize(breastSize);
         this.breastCount = breastCount;
         this.nippleCount = nippleCount;
+        this.breastSize = breastSize;
+    }
+
+    public Breasts(BreastSize breastSize) {
+        if (breastSize == BreastSize.NONE){
+            this.exists = false;
+        } else {
+            this.exists = true;
+        }
+        this.lactating = false;
+        this.milkCapacity = 0;
+        this.milkReCharge = 0;
+        this.size = breastSizeToSize(breastSize);
+        this.breastCount = 2;
+        this.nippleCount = 1;
         this.breastSize = breastSize;
     }
 
