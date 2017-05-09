@@ -1,5 +1,6 @@
 package classes.Character_And_Body;
 
+import classes.Character_And_Body.Body.Gender;
 import classes.Character_And_Body.Body.Hair.HairColor;
 import classes.Character_And_Body.Body.Hair.HairLength;
 import classes.Character_And_Body.Body.Hair.HairStyle;
@@ -10,6 +11,7 @@ import classes.Character_And_Body.Body.Organs.Penis;
 public class Character {
 
     private String name;
+    private Gender gender;
     private int height;
     private float weight;
     private int arousal;
@@ -24,8 +26,9 @@ public class Character {
     private HairStyle hairStyle;
 
     public Character(String name, int height, float weight, Race race, BreastSize breastSize, Penis penis,
-                     HairColor hairColor, HairLength hairLength, HairStyle hairStyle) {
+                     HairColor hairColor, HairLength hairLength, HairStyle hairStyle, Gender gender) {
         this.name = name;
+        this.gender = gender;
         this.height = height;
         this.weight = weight;
         this.arousal = 0;

@@ -7,6 +7,7 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import classes.Character_And_Body.Body.Gender;
 import classes.Character_And_Body.Body.Hair.HairColor;
 import classes.Character_And_Body.Body.Hair.HairLength;
 import classes.Character_And_Body.Body.Hair.HairStyle;
@@ -170,6 +171,7 @@ public class MaidSimController implements Initializable {
     // Temporary variables to create a player
 
     private String name;
+    private Gender gender;
     private int height;
     private float weight;
     private Race race;
@@ -236,7 +238,18 @@ public class MaidSimController implements Initializable {
 
         buttonGenderFemale.setOnAction(event -> {
             newGameGenderPane.setVisible(false);
+            newGameRacePane.setVisible(true);
+            storyBox.appendText("ADD SOME TEXT AFTERWARDS");
+            gender = Gender.FEMALE;
+            storyBox.appendText(gender.toString());
+        });
 
+        buttonGenderFutanari.setOnAction(event -> {
+            newGameGenderPane.setVisible(false);
+            newGameRacePane.setVisible(true);
+            storyBox.appendText("ADD SOME TEXT AFTERWARDS");
+            gender = Gender.FUTANARI;
+            storyBox.appendText(gender.toString());
         });
     }
 }
