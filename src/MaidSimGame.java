@@ -82,6 +82,7 @@ public class MaidSimGame extends Application {
         stage.setTitle("Maid Simulator");
         stage.show();
         stage.setResizable(false);
+        stage.sizeToScene();
         initialise();
     }
 
