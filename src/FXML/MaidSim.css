@@ -1,10 +1,10 @@
-#mainMenuPane {
+.root {
     -fx-background-image: url("../images/background.jpg");
     -fx-background-repeat: stretch, stretch;
     -fx-background-position: left top, left top;
     -fx-background-size: cover, cover;
 }
 
-#gameHUD {
+.gameHUD {
     -fx-background-color: Whitesmoke;
 }
