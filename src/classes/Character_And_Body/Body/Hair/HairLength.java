@@ -9,9 +9,18 @@ public enum HairLength {
     HIPLENGTH("Hip-length"),
     KNEELENGHT("Knee-length");
 
-    private final String hairLength;
+    private final String name;
 
-    HairLength(String hairLength) {
-        this.hairLength = hairLength;
+    HairLength(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

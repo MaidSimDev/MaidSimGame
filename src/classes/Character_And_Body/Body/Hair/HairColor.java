@@ -11,9 +11,18 @@ public enum HairColor {
     WHITE("White"),
     SILVER("Silver");
 
-    private final String hairColor;
+    private final String name;
 
-    HairColor(String hairColor) {
-        this.hairColor = hairColor;
+    HairColor(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

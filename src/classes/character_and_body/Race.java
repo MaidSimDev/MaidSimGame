@@ -8,8 +8,18 @@ public enum Race {
     GOOGIRL("Googirl"),
     DEMON("Demon");
 
-    private final String raceName;
-    Race(String raceName){
-        this.raceName = raceName;
+    private final String name;
+
+    Race(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

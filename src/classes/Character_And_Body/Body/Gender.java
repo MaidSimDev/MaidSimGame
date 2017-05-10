@@ -5,14 +5,18 @@ public enum Gender {
     FEMALE("Female"),
     FUTANARI("Futanari");
 
-    private final String gender;
+    private final String name;
 
-    Gender(String gender) {
-        this.gender = gender;
+    Gender(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString(){
-        return this.gender;
+        return this.name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

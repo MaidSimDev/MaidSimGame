@@ -8,9 +8,18 @@ public enum HairStyle {
     PONYTAIL("Ponytail"),
     PIGTAILS("Pigtails");
 
-    private final String hairStyle;
+    private final String name;
 
-    HairStyle(String hairStyle) {
-        this.hairStyle = hairStyle;
+    HairStyle(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
