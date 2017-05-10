@@ -16,7 +16,7 @@ import classes.Character_And_Body.Body.Organs.Penis;
 import classes.Character_And_Body.Race;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
+//import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -31,141 +31,143 @@ public class MaidSimController implements Initializable {
 
     // AnchorPanes
 
-    @FXML
+    //@FXML
     private AnchorPane mainFrame;
 
     // Panes
 
-    @FXML
+    //@FXML
     private Pane mainMenuPane;
 
 
-    @FXML
-    private Pane newGamePane;
+    //@FXML
+    //private Pane newGamePane;
 
 
-    @FXML
+    //@FXML
     private Pane gameHUD;
 
 
-    @FXML
+    /*//@FXML
     private Pane newGameGenderPane;
 
 
-    @FXML
+    //@FXML
     private Pane newGameRacePane;
 
 
-    @FXML
+    //@FXML
     public Pane newGameHairColorPane;
 
 
-    @FXML
+    //@FXML
     private Pane newGameBreastsPane;
 
 
-    @FXML
-    private Pane newGamePenisPane;
+    //@FXML
+    private Pane newGamePenisPane;*/
 
     // Buttons
 
-    @FXML
+    /*//@FXML
     private Button buttonNewGame;
 
 
-    @FXML
+    //@FXML
     private Button buttonGenderFemale;
 
 
-    @FXML
+    //@FXML
     private Button buttonGenderFutanari;
 
 
-    @FXML
+    //@FXML
     private Button buttonRaceHuman;
 
 
-    @FXML
+    //@FXML
     private Button buttonRaceElf;
 
 
-    @FXML
+    //@FXML
     private Button buttonRaceCatHuman;
 
 
-    @FXML
+    //@FXML
     private Button buttonRaceFoxHuman;
 
 
-    @FXML
+    //@FXML
     private Button buttonRaceDemon;
 
 
-    @FXML
+    //@FXML
     public Button buttonHairColorBlack;
 
 
-    @FXML
+    //@FXML
     public Button buttonHairColorRed;
 
 
-    @FXML
+    //@FXML
     public Button buttonHairColorBlond;
 
 
-    @FXML
+    //@FXML
     public Button buttonHairColorBrown;
 
 
-    @FXML
+    //@FXML
     public Button buttonHairColorWhite;
 
 
-    @FXML
+    //@FXML
     private Button buttonBreastsSmall;
 
 
-    @FXML
+    //@FXML
     private Button buttonBreastsSmallish;
 
 
-    @FXML
+    //@FXML
     private Button buttonBreastsMedium;
 
 
-    @FXML
+    //@FXML
     private Button buttonBreastsBig;
 
 
-    @FXML
+    //@FXML
     private Button buttonPenisSmall;
 
 
-    @FXML
+    //@FXML
     private Button buttonPenisSmallish;
 
 
-    @FXML
+    //@FXML
     private Button buttonPenisMedium;
 
 
-    @FXML
+    //@FXML
     private Button buttonPenisBig;
 
 
-    @FXML
+    //@FXML
     private Button buttonPenisHuge;
 
 
-    @FXML
-    private Button buttonBreastsHuge;
+    //@FXML
+    private Button buttonBreastsHuge;*/
+
+    private Button[] buttonArray = new Button[30];
 
     // Labels
 
 
     // TextArea
 
-    @FXML
+    //@FXML
     private TextArea storyBox;
 
     // Temporary variables to create a player
@@ -193,15 +195,15 @@ public class MaidSimController implements Initializable {
         // Initialise Pane Visibility
 
         gameHUD.setVisible(false);
-        newGameGenderPane.setVisible(true);
+        /*newGameGenderPane.setVisible(true);
         newGameRacePane.setVisible(false);
         newGameHairColorPane.setVisible(false);
         newGameBreastsPane.setVisible(false);
-        newGamePenisPane.setVisible(false);
+        newGamePenisPane.setVisible(false);*/
 
         // Set Button Text
 
-        buttonGenderFemale.setText("Female");
+        /*buttonGenderFemale.setText("Female");
         buttonGenderFutanari.setText("Futanari");
 
         buttonRaceHuman.setText("Human");
@@ -226,7 +228,7 @@ public class MaidSimController implements Initializable {
         buttonPenisSmallish.setText("Smallish");
         buttonPenisMedium.setText("Medium");
         buttonPenisBig.setText("Big");
-        buttonPenisHuge.setText("Huge");
+        buttonPenisHuge.setText("Huge");*/
 
         // Link Buttons to methods
 
@@ -236,6 +238,11 @@ public class MaidSimController implements Initializable {
             storyBox.appendText(greetings);
         });
 
+        
+
+    }
+
+    public void derp(){
         buttonGenderFemale.setOnAction(event -> {
             newGameGenderPane.setVisible(false);
             newGameRacePane.setVisible(true);
