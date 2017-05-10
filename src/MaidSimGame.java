@@ -11,6 +11,7 @@ import classes.Character_And_Body.Body.Hair.HairStyle;
 import classes.Character_And_Body.Body.Organs.BreastSize;
 import classes.Character_And_Body.Body.Organs.Penis;
 import classes.Character_And_Body.Race;
+import classes.etc.Strings;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,24 +28,31 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static classes.etc.Strings.greetings;
+import static classes.etc.Strings.*;
 
 public class MaidSimGame extends Application {
 
     public static final EventHandler<ActionEvent> doNothing = event -> {
     };
-    private Pane mainMenuPane = new Pane();
+
     // Panes
+
+    private Pane mainMenuPane = new Pane();
     private Pane gameHUD = new Pane();
-    private Button[] buttonArray = new Button[30];
+
     // Buttons
+
+    private Button[] buttonArray = new Button[30];
     private Button buttonNewGame = new Button();
 
-    // Labels
-    private TextArea storyBox = new TextArea();
     // TextArea
-    private String name;
+
+    private TextArea menuBox = new TextArea();
+    private TextArea storyBox = new TextArea();
+
     // Temporary variables to create a player
+
+    private String name;
     private Gender gender;
     private int height;
     private float weight;
@@ -53,27 +61,8 @@ public class MaidSimGame extends Application {
     private Penis penis;
     private HairColor hairColor;
     private HairLength hairLength;
-
-    //
     private HairStyle hairStyle;
 
-    /*    public void derp(){
-            buttonGenderFemale.setOnAction(event -> {
-                newGameGenderPane.setVisible(false);
-                newGameRacePane.setVisible(true);
-                storyBox.appendText("ADD SOME TEXT AFTERWARDS");
-                gender = Gender.FEMALE;
-                storyBox.appendText(gender.toString());
-            });
-
-            buttonGenderFutanari.setOnAction(event -> {
-                newGameGenderPane.setVisible(false);
-                newGameRacePane.setVisible(true);
-                storyBox.appendText("ADD SOME TEXT AFTERWARDS");
-                gender = Gender.FUTANARI;
-                storyBox.appendText(gender.toString());
-            });
-        }*/
     public static void main(String[] args) {
         launch(args);
     }
@@ -85,16 +74,14 @@ public class MaidSimGame extends Application {
     public void start(Stage stage) throws Exception {
         Pane root = new Pane();
         root.getChildren().addAll(mainMenuPane, gameHUD);
-        root.setMinWidth(1280);
-        root.setMinHeight(720);
-        root.setPrefHeight(720);
-        root.setPrefWidth(1280);
+        root.setPrefSize(1280, 720);
         root.getStyleClass().add("root");
         root.getStylesheets().add("FXML/MaidSim.css");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Maid Simulator");
         stage.show();
+        stage.setResizable(false);
         initialise();
     }
 
@@ -102,34 +89,40 @@ public class MaidSimGame extends Application {
 
         // Setup GUI
 
-        mainMenuPane.setPrefWidth(1280);
-        mainMenuPane.setPrefHeight(720);
-        mainMenuPane.getChildren().add(buttonNewGame);
+        mainMenuPane.setPrefSize(1280, 720);
+        mainMenuPane.setLayoutX(0);
+        mainMenuPane.setLayoutY(0);
+        mainMenuPane.getChildren().addAll(buttonNewGame, menuBox);
 
-        buttonNewGame.setPrefWidth(128);
-        buttonNewGame.setPrefHeight(55);
-        buttonNewGame.setLayoutX(640);
-        buttonNewGame.setLayoutY((720 - 55) / 2);
+        buttonNewGame.setPrefSize(128, 55);
+        buttonNewGame.setLayoutX(576);
+        buttonNewGame.setLayoutY(333);
         buttonNewGame.setText("New Game");
         buttonNewGame.setFont(Font.font(15));
 
-        gameHUD.setPrefWidth(1280);
-        gameHUD.setPrefHeight(720);
+        menuBox.setPrefSize(680, 125);
+        menuBox.setLayoutX(300);
+        menuBox.setLayoutY(595);
+        menuBox.setEditable(false);
+        menuBox.setWrapText(true);
+        menuBox.setWrapText(true);
+        menuBox.appendText(intro);
+
+        gameHUD.setPrefSize(1280, 720);
         gameHUD.setVisible(false);
         gameHUD.getChildren().add(storyBox);
         gameHUD.getStyleClass().add("gameHUD");
 
-        storyBox.setPrefWidth(1080); // 1080 = 10x + 50 <==> 103 = x
-        storyBox.setPrefHeight(595); // 120 = 3x + 15 <==> 35 = x
+        storyBox.setPrefSize(1080, 595);
         storyBox.setLayoutX(200);
         storyBox.setLayoutY(0);
         storyBox.setEditable(false);
+        storyBox.setWrapText(true);
 
         for (int i = 0; i < buttonArray.length; i++) {
             buttonArray[i] = new Button();
             buttonArray[i].setText("");
-            buttonArray[i].setPrefWidth(103);
-            buttonArray[i].setPrefHeight(35);
+            buttonArray[i].setPrefSize(103, 35);
             if (i == 0) {
                 buttonArray[i].setLayoutX(storyBox.getLayoutX());
                 buttonArray[i].setLayoutY(storyBox.getLayoutY() + storyBox.getPrefHeight() + 5);
@@ -146,17 +139,18 @@ public class MaidSimGame extends Application {
         buttonNewGame.setOnAction(event -> {
             mainMenuPane.setVisible(false);
             gameHUD.setVisible(true);
+            storyBox.appendText("");
+            clearButtonText();
             newGameGender();
-            storyBox.appendText(greetings);
         });
     }
 
     public void newGameGender() {
-        int i;
-        for (i = 0; i < Gender.values().length; i++) {
-            buttonArray[i].setText(Gender.values()[i].getName());
-            final int x = i;
-            buttonArray[i].setOnAction(event -> {
+        for (Gender g : Gender.values()) {
+            buttonArray[g.ordinal()].setText(g.getName());
+            buttonArray[g.ordinal()].setDisable(false);
+            final int x = g.ordinal();
+            buttonArray[g.ordinal()].setOnAction(event -> {
                 gender = Gender.values()[x];
                 System.out.println(gender);
                 storyBox.appendText("You're a " + gender + "\n");
@@ -167,17 +161,16 @@ public class MaidSimGame extends Application {
     }
 
     public void newGameRace() {
-        int i;
-        for (i = 0; i < Race.values().length; i++) {
-            buttonArray[i].setText(Race.values()[i].getName());
-            final int x = i;
-            buttonArray[i].setOnAction(event -> {
+        for (Race r : Race.values()) {
+            buttonArray[r.ordinal()].setText(r.getName());
+            buttonArray[r.ordinal()].setDisable(false);
+            final int x = r.ordinal();
+            buttonArray[r.ordinal()].setOnAction(event -> {
                 race = Race.values()[x];
                 System.out.println(race);
                 storyBox.appendText("You're a " + race + "\n");
                 clearButtonText();
             });
-            i++;
         }
     }
 
@@ -185,6 +178,7 @@ public class MaidSimGame extends Application {
         for (Button b : buttonArray) {
             b.setText("");
             b.setOnAction(doNothing);
+            b.setDisable(true);
         }
     }
 }

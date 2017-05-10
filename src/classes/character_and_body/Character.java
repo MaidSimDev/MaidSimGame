@@ -14,10 +14,6 @@ public class Character {
     private Gender gender;
     private int height;
     private float weight;
-    private int arousal;
-    private int maxArousal;
-    private int stamina;
-    private int maxStamina;
     private Race race;
     private Breasts breasts;
     private Penis penis;
@@ -25,30 +21,18 @@ public class Character {
     private HairLength hairLength;
     private HairStyle hairStyle;
 
-    public Character(String name, int height, float weight, Race race, BreastSize breastSize, Penis penis,
+    public Character(String name, int height, float weight, Race race, BreastSize breastSize, int penisLength,
                      HairColor hairColor, HairLength hairLength, HairStyle hairStyle, Gender gender) {
         this.name = name;
         this.gender = gender;
         this.height = height;
         this.weight = weight;
-        this.arousal = 0;
-        this.maxArousal = 100;
-        this.stamina = 100;
-        this.maxStamina = 100;
         this.race = race;
-        this.breasts = breasts;
-        this.penis = penis;
+        this.breasts = new Breasts(breastSize);
+        this.penis = new Penis(gender.ordinal() != 1, true, penisLength);
         this.hairColor = hairColor;
         this.hairLength = hairLength;
         this.hairStyle = hairStyle;
-    }
-
-    public int getMaxStamina() {
-        return maxStamina;
-    }
-
-    public void setMaxStamina(int maxStamina) {
-        this.maxStamina = maxStamina;
     }
 
     public String getName() {
@@ -73,30 +57,6 @@ public class Character {
 
     public void setWeight(float weight) {
         this.weight = weight;
-    }
-
-    public int getArousal() {
-        return arousal;
-    }
-
-    public void setArousal(int arousal) {
-        this.arousal = arousal;
-    }
-
-    public int getMaxArousal() {
-        return maxArousal;
-    }
-
-    public void setMaxArousal(int maxArousal) {
-        this.maxArousal = maxArousal;
-    }
-
-    public int getStamina() {
-        return stamina;
-    }
-
-    public void setStamina(int stamina) {
-        this.stamina = stamina;
     }
 
     public Race getRace() {
