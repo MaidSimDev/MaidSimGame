@@ -5,7 +5,7 @@ public enum Race {
     ELF("Elf"),
     NEKOMIMI("Nekomimi"),
     KITSUNEMIMI("Kitsunemimi"),
-    GOOGIRL("Googirl"),
+    GOO("Goo"),
     DEMON("Demon");
 
     private final String name;

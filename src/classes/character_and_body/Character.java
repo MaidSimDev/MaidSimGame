@@ -28,7 +28,7 @@ public class Character {
         this.height = height;
         this.weight = weight;
         this.race = race;
-        this.breasts = new Breasts(breastSize);
+        this.breasts = new Breasts(gender.ordinal() != 0, breastSize);
         this.penis = new Penis(gender.ordinal() != 1, true, penisLength);
         this.hairColor = hairColor;
         this.hairLength = hairLength;
@@ -105,5 +105,13 @@ public class Character {
 
     public void setHairStyle(HairStyle hairStyle) {
         this.hairStyle = hairStyle;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }

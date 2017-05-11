@@ -10,25 +10,26 @@ import classes.Character_And_Body.Body.Hair.HairLength;
 import classes.Character_And_Body.Body.Hair.HairStyle;
 import classes.Character_And_Body.Body.Organs.BreastSize;
 import classes.Character_And_Body.Body.Organs.Penis;
+import classes.Character_And_Body.Player;
 import classes.Character_And_Body.Race;
 import classes.etc.Strings;
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import static classes.etc.Strings.*;
+import static classes.etc.Strings.intro;
+import static classes.etc.Strings.menu;
 
 public class MaidSimGame extends Application {
 
@@ -58,10 +59,11 @@ public class MaidSimGame extends Application {
     private float weight;
     private Race race;
     private BreastSize breastSize;
-    private Penis penis;
+    private int penisSize;
     private HairColor hairColor;
     private HairLength hairLength;
     private HairStyle hairStyle;
+    private Player player;
 
     public static void main(String[] args) {
         launch(args);
@@ -107,7 +109,7 @@ public class MaidSimGame extends Application {
         menuBox.setEditable(false);
         menuBox.setWrapText(true);
         menuBox.setWrapText(true);
-        menuBox.appendText(intro);
+        menuBox.appendText(menu);
 
         gameHUD.setPrefSize(1280, 720);
         gameHUD.setVisible(false);
@@ -140,7 +142,7 @@ public class MaidSimGame extends Application {
         buttonNewGame.setOnAction(event -> {
             mainMenuPane.setVisible(false);
             gameHUD.setVisible(true);
-            storyBox.appendText("");
+            storyBox.appendText(intro);
             clearButtonText();
             newGameGender();
         });
@@ -154,7 +156,7 @@ public class MaidSimGame extends Application {
             buttonArray[g.ordinal()].setOnAction(event -> {
                 gender = Gender.values()[x];
                 System.out.println(gender);
-                storyBox.appendText("You're a " + gender + "\n");
+                storyBox.appendText(gender + " that's right!\n" + Strings.race);
                 clearButtonText();
                 newGameRace();
             });
@@ -169,10 +171,72 @@ public class MaidSimGame extends Application {
             buttonArray[r.ordinal()].setOnAction(event -> {
                 race = Race.values()[x];
                 System.out.println(race);
-                storyBox.appendText("You're a " + race + "\n");
+                storyBox.appendText(race + ".\n");
                 clearButtonText();
+                newGameHairColor();
             });
         }
+    }
+
+    public void newGameHairColor() {
+        for (HairColor hc : HairColor.values()) {
+            buttonArray[hc.ordinal()].setText(hc.getName());
+            buttonArray[hc.ordinal()].setDisable(false);
+            final int x = hc.ordinal();
+            buttonArray[hc.ordinal()].setOnAction(event -> {
+                hairColor = HairColor.values()[x];
+                storyBox.appendText(hairColor + ".\n");
+                clearButtonText();
+                if (gender.ordinal() != 0) {
+                    newGameBreasts();
+                } else {
+                    newGamePenis();
+                }
+            });
+        }
+    }
+
+    public void newGameBreasts() {
+        for (BreastSize b : BreastSize.values()) {
+            buttonArray[b.ordinal()].setText(b.getName());
+            buttonArray[b.ordinal()].setDisable(false);
+            final int x = b.ordinal();
+            buttonArray[b.ordinal()].setOnAction(event -> {
+                breastSize = BreastSize.values()[x];
+                storyBox.appendText(breastSize + ".\n");
+                clearButtonText();
+                if (gender.ordinal() == 2) {
+                    newGamePenis();
+                } else {
+                    newGameHeight();
+                }
+            });
+        }
+    }
+
+    public void newGamePenis() {
+        penisSize = Integer.parseInt(popUpWindow("How long is your dong?"));
+        storyBox.appendText(penisSize + ".\n");
+        newGameHeight();
+    }
+
+    public void newGameHeight() {
+        height = Integer.parseInt(popUpWindow("How long is your dong?"));
+        storyBox.appendText(height + ".\n");
+        newGameWeight();
+    }
+
+    public void newGameWeight() {
+        weight = Integer.parseInt(popUpWindow("How long is your dong?"));
+        storyBox.appendText(weight + ".\n");
+        newGameName();
+    }
+
+    public void newGameName() {
+        name = popUpWindow("How long is your dong?");
+        storyBox.appendText(name + ".\n");
+        player = new Player(name, height, weight, race, breastSize, penisSize, hairColor, HairLength.SHOULDERLENGTH, HairStyle.STRAIGHT, gender);
+        storyBox.appendText("\nCharacter profile: \nName: "+player.getName()+"\nGender: "+player.getGender()+"\nHeight: "+player.getHeight()+"\nWeight: "+player.getWeight()+"\nHaircolor: "+player.getHairColor());
     }
 
     public void clearButtonText() {
@@ -181,5 +245,35 @@ public class MaidSimGame extends Application {
             b.setOnAction(doNothing);
             b.setDisable(true);
         }
+    }
+
+    public String popUpWindow(String stageTitle) {
+        StringProperty retS = new SimpleStringProperty();
+        Pane popUp = new Pane();
+        Stage stage = new Stage();
+        stage.setTitle(stageTitle);
+        stage.setScene(new Scene(popUp, 500, 180));
+        TextField tf = new TextField();
+        tf.setPrefWidth(300);
+        tf.setLayoutX(100);
+        tf.setLayoutY(10);
+        Button confirm = new Button("Confirm");
+        confirm.setPrefSize(100, 50);
+        confirm.setLayoutX(200);
+        confirm.setLayoutY(125);
+        popUp.getChildren().addAll(confirm, tf);
+        stage.show();
+        stage.setResizable(false);
+        stage.sizeToScene();
+        tf.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                confirm.fire();
+            }
+        });
+        confirm.setOnAction(event -> {
+            retS.set(tf.getText());
+            stage.close();
+        });
+        return retS.toString();
     }
 }

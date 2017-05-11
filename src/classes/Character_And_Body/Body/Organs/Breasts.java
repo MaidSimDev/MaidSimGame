@@ -26,12 +26,8 @@ public class Breasts {
         this.breastSize = breastSize;
     }
 
-    public Breasts(BreastSize breastSize) {
-        if (breastSize == BreastSize.NONE){
-            this.exists = false;
-        } else {
-            this.exists = true;
-        }
+    public Breasts(boolean exists, BreastSize breastSize) {
+        this.exists = exists;
         this.lactating = false;
         this.milkCapacity = 0;
         this.milkReCharge = 0;
