@@ -205,35 +205,41 @@ public class MaidSimGame extends Application {
                 breastSize = BreastSize.values()[x];
                 storyBox.appendText(breastSize + ".\n");
                 clearButtonText();
-                if (gender.ordinal() == 2) {
-                    newGamePenis();
-                } else {
+                /*System.out.println(gender.getName()+": "+gender.ordinal());
+                System.out.println(Gender.values()[1].getName()+": "+Gender.values()[1].ordinal());*/
+                if (gender.ordinal() == 1) {
                     newGameHeight();
+                } else {
+                    newGamePenis();
                 }
             });
         }
     }
 
     public void newGamePenis() {
-        penisSize = Integer.parseInt(popUpWindow("How long is your dong?"));
+        String temp = popUpWindow("How long is your dong?");
+        penisSize = temp == null ? 0 : Integer.parseInt(temp);
         storyBox.appendText(penisSize + ".\n");
         newGameHeight();
     }
 
     public void newGameHeight() {
-        height = Integer.parseInt(popUpWindow("How long is your dong?"));
+        String temp = popUpWindow("How big are you in cm?");
+        height = temp == null ? 0 : Integer.parseInt(temp);
         storyBox.appendText(height + ".\n");
         newGameWeight();
     }
 
     public void newGameWeight() {
-        weight = Integer.parseInt(popUpWindow("How long is your dong?"));
+        String temp = popUpWindow("How much do you put on a scale in kg?");
+        weight = temp == null ? 0 : Float.parseFloat(temp);
         storyBox.appendText(weight + ".\n");
         newGameName();
     }
 
     public void newGameName() {
-        name = popUpWindow("How long is your dong?");
+        String temp = popUpWindow("What's your name?");
+        name = temp == null ? "" : temp;
         storyBox.appendText(name + ".\n");
         player = new Player(name, height, weight, race, breastSize, penisSize, hairColor, HairLength.SHOULDERLENGTH, HairStyle.STRAIGHT, gender);
         storyBox.appendText("\nCharacter profile: \nName: "+player.getName()+"\nGender: "+player.getGender()+"\nHeight: "+player.getHeight()+"\nWeight: "+player.getWeight()+"\nHaircolor: "+player.getHairColor());
@@ -271,9 +277,9 @@ public class MaidSimGame extends Application {
             }
         });
         confirm.setOnAction(event -> {
-            retS.set(tf.getText());
+            retS.setValue(tf.getText());
             stage.close();
         });
-        return retS.toString();
+        return retS.getValue();
     }
 }
