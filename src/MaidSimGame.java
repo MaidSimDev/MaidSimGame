@@ -205,8 +205,6 @@ public class MaidSimGame extends Application {
                 breastSize = BreastSize.values()[x];
                 storyBox.appendText(breastSize + ".\n");
                 clearButtonText();
-                /*System.out.println(gender.getName()+": "+gender.ordinal());
-                System.out.println(Gender.values()[1].getName()+": "+Gender.values()[1].ordinal());*/
                 if (gender.ordinal() == 1) {
                     newGameHeight();
                 } else {
@@ -217,32 +215,19 @@ public class MaidSimGame extends Application {
     }
 
     public void newGamePenis() {
-        String temp = popUpWindow("How long is your dong?");
-        penisSize = temp == null ? 0 : Integer.parseInt(temp);
-        storyBox.appendText(penisSize + ".\n");
-        newGameHeight();
+        popUpWindow("How long is your dong? (in cm)", 1);
     }
 
     public void newGameHeight() {
-        String temp = popUpWindow("How big are you in cm?");
-        height = temp == null ? 0 : Integer.parseInt(temp);
-        storyBox.appendText(height + ".\n");
-        newGameWeight();
+        popUpWindow("How big are you? (in cm)", 2);
     }
 
     public void newGameWeight() {
-        String temp = popUpWindow("How much do you put on a scale in kg?");
-        weight = temp == null ? 0 : Float.parseFloat(temp);
-        storyBox.appendText(weight + ".\n");
-        newGameName();
+        popUpWindow("How much do you weigh? (in kg)", 3);
     }
 
     public void newGameName() {
-        String temp = popUpWindow("What's your name?");
-        name = temp == null ? "" : temp;
-        storyBox.appendText(name + ".\n");
-        player = new Player(name, height, weight, race, breastSize, penisSize, hairColor, HairLength.SHOULDERLENGTH, HairStyle.STRAIGHT, gender);
-        storyBox.appendText("\nCharacter profile: \nName: "+player.getName()+"\nGender: "+player.getGender()+"\nHeight: "+player.getHeight()+"\nWeight: "+player.getWeight()+"\nHaircolor: "+player.getHairColor());
+        popUpWindow("What's your name?", 4);
     }
 
     public void clearButtonText() {
@@ -253,8 +238,7 @@ public class MaidSimGame extends Application {
         }
     }
 
-    public String popUpWindow(String stageTitle) {
-        StringProperty retS = new SimpleStringProperty();
+    public void popUpWindow(String stageTitle, int id) {
         Pane popUp = new Pane();
         Stage stage = new Stage();
         stage.setTitle(stageTitle);
@@ -277,9 +261,35 @@ public class MaidSimGame extends Application {
             }
         });
         confirm.setOnAction(event -> {
-            retS.setValue(tf.getText());
+            setVariable(tf, id);
             stage.close();
         });
-        return retS.getValue();
+    }
+
+    public void setVariable(TextField tf, int id) {
+        switch (id) {
+            case 1:
+                penisSize = tf.getText() == "" ? 0 : Integer.parseInt(tf.getText());
+                storyBox.appendText(penisSize + ".\n");
+                newGameHeight();
+                break;
+            case 2:
+                height = tf.getText() == null ? 0 : Integer.parseInt(tf.getText());
+                storyBox.appendText(height + ".\n");
+                newGameWeight();
+                break;
+            case 3:
+                weight = tf.getText() == null ? 0 : Float.parseFloat(tf.getText());
+                storyBox.appendText(weight + ".\n");
+                newGameName();
+                break;
+            case 4:
+                name = tf.getText() == null ? "" : tf.getText();
+                storyBox.appendText(name + ".\n");
+                player = new Player(name, height, weight, race, gender.ordinal() == 0 ? BreastSize.NONE : breastSize, gender.ordinal() == 1 ? 0 : penisSize, hairColor, HairLength.SHOULDERLENGTH, HairStyle.STRAIGHT, gender);
+                storyBox.appendText("\nCharacter profile: \nName: " + player.getName() + "\nGender: " + player.getGender() + "\nHeight: " + player.getHeight() + " cm\nWeight: " + player.getWeight() + " kg\nHaircolor: " + player.getHairColor());
+                break;
+        }
+
     }
 }
