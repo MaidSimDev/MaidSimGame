@@ -11,8 +11,8 @@ public class Breasts {
     private int nippleCount;
     private BreastSize breastSize;
 
-    public Breasts(boolean lactating, int milkCapacity, int milkReCharge, int size, int breastCount, int nippleCount,BreastSize breastSize) {
-        if (breastSize == BreastSize.NONE){
+    public Breasts(boolean lactating, int milkCapacity, int milkReCharge, int size, int breastCount, int nippleCount, BreastSize breastSize) {
+        if (breastSize == BreastSize.NONE) {
             this.exists = false;
         } else {
             this.exists = true;
@@ -37,24 +37,39 @@ public class Breasts {
         this.breastSize = breastSize;
     }
 
-    private int breastSizeToSize(BreastSize breastSize){
-        switch(breastSize){
-            case A:  return 10;
-            case B:  return 20;
-            case C:  return 30;
-            case D:  return 40;
-            case DD: return 55;
-            case E:  return 60;
-            case EE: return 65;
-            case F:  return 70;
-            case FF: return 75;
-            case G:  return 80;
-            case GG: return 85;
-            case H:  return 90;
-            case HH: return 95;
-            default: return 0;
+    private int breastSizeToSize(BreastSize breastSize) {
+        switch (breastSize) {
+            case A:
+                return 10;
+            case B:
+                return 20;
+            case C:
+                return 30;
+            case D:
+                return 40;
+            case DD:
+                return 55;
+            case E:
+                return 60;
+            case EE:
+                return 65;
+            case F:
+                return 70;
+            case FF:
+                return 75;
+            case G:
+                return 80;
+            case GG:
+                return 85;
+            case H:
+                return 90;
+            case HH:
+                return 95;
+            default:
+                return 0;
         }
     }
+
     public boolean isExists() {
         return exists;
     }
