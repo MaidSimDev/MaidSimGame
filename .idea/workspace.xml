@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MaidSimGame/MaidSimGame.class" afterPath="$PROJECT_DIR$/out/production/MaidSimGame/MaidSimGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MaidSimGame.java" afterPath="$PROJECT_DIR$/src/MaidSimGame.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/src/MaidSimGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="677">
-              <caret line="289" column="188" lean-forward="false" selection-start-line="289" selection-start-column="188" selection-end-line="289" selection-end-column="188" />
+              <caret line="289" column="204" lean-forward="false" selection-start-line="289" selection-start-column="204" selection-end-line="289" selection-end-column="204" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#initialise#0;class#MaidSimGame#0" expanded="false" />
@@ -271,6 +269,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -396,8 +396,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -902,7 +900,8 @@
       <workItem from="1494524425879" duration="6873000" />
       <workItem from="1494533129202" duration="60000" />
       <workItem from="1494565420064" duration="2209000" />
-      <workItem from="1494569633948" duration="4000" />
+      <workItem from="1494569633948" duration="35000" />
+      <workItem from="1494612772185" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1494087093477</created>
@@ -1128,14 +1127,21 @@
       <option name="project" value="LOCAL" />
       <updated>1494443430838</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary=".">
+      <created>1494569646873</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1494569646873</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74328000" />
+    <option name="totallyTimeSpent" value="74958000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1412,7 +1418,7 @@
     <entry file="file://$PROJECT_DIR$/src/MaidSimGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="677">
-          <caret line="289" column="188" lean-forward="false" selection-start-line="289" selection-start-column="188" selection-end-line="289" selection-end-column="188" />
+          <caret line="289" column="204" lean-forward="false" selection-start-line="289" selection-start-column="204" selection-end-line="289" selection-end-column="204" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#initialise#0;class#MaidSimGame#0" expanded="false" />
